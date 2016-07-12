@@ -4,6 +4,10 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
+/*
+ * Comments for this class are the same as logger messages.
+ */
+
 public class Philosopher implements Runnable {
 	
 	private final static Logger logger = Logger.getRootLogger();
@@ -36,12 +40,16 @@ public class Philosopher implements Runnable {
                 logger.debug("Philosopher " + name + " will be thinking next " + thinkingTime + " ms.");
                 Thread.sleep(thinkingTime);
 
+                // Philosopher takes a little fork (and temporary locks it), or waits until the fork will be free.
                 synchronized (littleFork) {
                     logger.debug("Philosopher " + name + " took little fork.");
                     Thread.sleep(200);
                     
+                    // Philosopher takes a big fork (and temporary locks it), or waits until the fork will be free.
                     synchronized (bigFork){
                         logger.debug("Philosopher " + name + " took big fork.");
+                        
+                        // Philosopher holds time for meal, using two forks (both forks locked by this philosopher).
                         int eatingTime = random.nextInt(3000);
                         logger.debug("Philosopher " + name + " will be eating next " + eatingTime + " ms.");
                         Thread.sleep(eatingTime);
@@ -51,6 +59,7 @@ public class Philosopher implements Runnable {
                 }
                 
                 logger.debug("Philosopher " + name + " put little fork at the table too.");
+                // Philosopher unlocks two forks.
             }
             
             logger.debug("Philosopher " + name + " finish intellectualize.");

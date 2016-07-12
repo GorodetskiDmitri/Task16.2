@@ -1,6 +1,11 @@
 package by.epam.multithreading.philosophers;
 
 public class Main {
+	
+	/*
+	 * There was used resource hierarchy solution.
+	 * Hierarchy of resources allows to avoid deadlocks.
+	 */
 
 	public static void main(String[] args) {
 
