@@ -3,7 +3,8 @@ package by.epam.multithreading.philosophers;
 public class Main {
 	
 	public static void main(String[] args) {
-		Fork fork1 = new Fork(11);
+	
+		Fork fork1 = new Fork(1);
         Fork fork2 = new Fork(2);
         Fork fork3 = new Fork(3);
         Fork fork4 = new Fork(4);
