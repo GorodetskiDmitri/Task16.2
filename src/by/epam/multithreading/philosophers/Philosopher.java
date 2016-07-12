@@ -5,14 +5,14 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 
 public class Philosopher implements Runnable {
+	
 	private final static Logger logger = Logger.getRootLogger();
-    
-	private int i;
+
 	private String name;
-    private Fork bigFork;
-    private Fork littleFork;
-    private boolean intellectualize = true;
-    private Random random;
+	private Fork bigFork;
+	private Fork littleFork;
+	private boolean intellectualize = true;
+	private Random random;
 
     public Philosopher(String name, Fork fork1, Fork fork2) {
         this.name = name;
