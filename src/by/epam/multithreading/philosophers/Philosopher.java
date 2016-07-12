@@ -5,9 +5,8 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 
 public class Philosopher implements Runnable {
-
-	private final static Logger logger = Logger.getRootLogger();
 	
+	private final static Logger logger = Logger.getRootLogger();
     private String name;
     private Fork bigFork;
     private Fork littleFork;
