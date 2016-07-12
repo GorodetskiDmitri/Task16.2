@@ -36,21 +36,21 @@ public class Philosopher implements Runnable {
                 logger.debug("Philosopher " + name + " will be thinking next " + thinkingTime + " ms.");
                 Thread.sleep(thinkingTime);
 
-                synchronized (bigFork) {
-                    logger.debug("Philosopher " + name + " took big fork.");
+                synchronized (littleFork) {
+                    logger.debug("Philosopher " + name + " took little fork.");
                     Thread.sleep(200);
                     
-                    synchronized (littleFork){
-                        logger.debug("Philosopher " + name + " took little fork.");
+                    synchronized (bigFork){
+                        logger.debug("Philosopher " + name + " took big fork.");
                         int eatingTime = random.nextInt(3000);
                         logger.debug("Philosopher " + name + " will be eating next " + eatingTime + " ms.");
                         Thread.sleep(eatingTime);
                     }
                     
-                    logger.debug("Philosopher " + name + " finish eating and put little fork at the table.");
+                    logger.debug("Philosopher " + name + " finish eating and put big fork at the table.");
                 }
                 
-                logger.debug("Philosopher " + name + " put big fork at the table too.");
+                logger.debug("Philosopher " + name + " put little fork at the table too.");
             }
             
             logger.debug("Philosopher " + name + " finish intellectualize.");
